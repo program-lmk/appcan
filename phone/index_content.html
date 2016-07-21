@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+        <link rel="stylesheet" href="css/ziji.css">
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+
+        <div id="slider" class="slider marTOP"></div>
+         
+
+        <div class="ub uinn3 TRUhei1">
+            <div class="btn ub ub-ac bc-text-head ub-pc bc-btn"  id="btnMS">
+                美食之旅
+            </div>
+            <img src="indexCon/img/6.jpg"/>
+        </div>
+        <div class='ub c-gra uba b-bla umh5 ub-pe bor'>
+            <div class='ub-f4  TRUhei1'>
+                <img src="indexCon/img/10.jpg"/>
+            </div>
+            <div class='ub-f1 btn ub ub-ac bc-text-head ub-pc bc-btn' id="btnTJ">
+                主厨推荐
+            </div>
+        </div>
+        
+       <!-- <div class="ub uinn3 TRUhei1">
+           <div class="ub-f1">
+              <div class='btn ub  bc-text-head ub-pc bc-btn ub-a pad1 mar'>
+                  ss
+              </div>
+           </div>
+           <div class="ub-f1">
+              <div class=' btn ub bc-text-head ub-pc bc-btn ub-a pad1'>
+                  ss
+              </div>
+           </div>
+       </div> -->
+       <div class="ub ub-ver">
+                <div class="uinn-a7 umar-at1 ub">
+                    <div class="uw-33">
+                        <div class="uh-ele2 ub-img1 ele-sort1  umar-ar6">
+                            <div class="uinn-a1 ub ub-ver">
+                                <div class="t-blu ulev-app1">
+                                    抢购
+                                </div>
+                                <div class="ulev-2 t-gra-ele umar-t">
+                                    9时开抢，倒计时：
+                                </div>
+                                <div class="ulev0 t-bla ufm1 umar-t">
+                                    15:22:34
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uw-33">
+                        <div class="uh-ele2 ub-img1 ele-sort2 umar-ar6">
+                            <div class="uinn-a1 ub ub-ver">
+                                <div class="t-org-ele ulev-app1">
+                                    团购
+                                </div>
+                                <div class="ulev-2 t-gra-ele umar-t">
+                                    全网最低价
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uw-33">
+                        <div class="uh-ele2 ub-img1 ele-sort3">
+                            <div class="uinn-a1 ub ub-ver">
+                                <div class="t-gre-ele ulev-app1">
+                                    早晚市
+                                </div>
+                                <div class="ulev-2 t-gra-ele umar-t">
+                                    7时早市，18时夜场
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+       
+      
+
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+        <script src="js/appcan.slider.js"></script>
+    </body>
+    <script>
+        appcan.ready(function() {
+            appcan.initBounce();
+        })
+        var slider = appcan.slider({
+            selector : '#slider',
+            aspectRatio : 6 / 16,
+            index : 0,
+            auto : 3000
+        });
+
+        slider.set([{
+            img : "indexCon/img/0.jpg",
+
+        }, {
+            img : "indexCon/img/1.jpg",
+
+        }, {
+            img : "indexCon/img/2.jpg",
+
+        }, {
+            img : "indexCon/img/3.jpg",
+
+        }, {
+            img : "indexCon/img/4.jpg",
+
+        }])
+        slider.on("clickItem", function(index, data) {
+        })
+        appcan.button(".btn", "ani-act", function(a, b) {
+            var btn = $(a.currentTarget);
+            var btn_id = btn.attr('id');
+            if (btn_id == 'btnMS') {
+                appcan.window.open({
+                    name : "MS",
+                    data : "MS.html",
+                    aniId : 2
+                })
+            } else if (btn_id == 'btnTJ') {
+                appcan.window.open({
+                    name : "TJ",
+                    data : "TJ.html",
+                    aniId : 2
+                })
+            }
+
+        })
+    </script>
+</html>

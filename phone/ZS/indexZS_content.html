@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+        <link rel="stylesheet" href="../css/appcan.icon.css">
+        <link rel="stylesheet" href="../css/appcan.control.css">
+        <link rel="stylesheet" href="indexZS_content/css/main.css">
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+        <div class="ub ub-ver mar-aL1" id="showGoods">
+
+        </div>
+        <script src="../js/appcan.js"></script>
+        <script src="../js/appcan.control.js"></script>
+    </body>
+    <script>
+        var i = 0;
+        appcan.ready(function() {
+            appcan.initBounce();
+            showGoods();
+        })
+        function showGoods() {
+            var arrData = [{
+                "goods" : "indexZS_content/css/myImg/0.jpg",
+                "synopsis" : "玉记扒鸡",
+                "price" : "￥69",
+            }, {
+                "goods" : "indexZS_content/css/myImg/1.jpg",
+                "synopsis" : "家常鲫鱼",
+                "price" : "￥50",
+            }, {
+                "goods" : "indexZS_content/css/myImg/2.jpg",
+                "synopsis" : "笋丝",
+                "price" : "￥29",
+            }, {
+                "goods" : "indexZS_content/css/myImg/3.jpg",
+                "synopsis" : "酱汁鸡腿 ",
+                "price" : "￥62",
+            }, {
+                "goods" : "indexZS_content/css/myImg/4.jpg",
+                "synopsis" : "家常虾",
+                "price" : "￥67",
+            }, {
+                "goods" : "indexZS_content/css/myImg/5.jpg",
+                "synopsis" : "香满客",
+                "price" : "￥24",
+            }];
+            var tmpl = '<%for(var i=0,len=arrData.length;i<len;i++){%>' + '<%if(i%2 == 0){%>' + '<div class="ub uinn-ele3">' + '<%}%>' + '<div ontouchstart="appcan.touch(\'\')" onclick="openDetails(event);" class="c-wh ub ub-ver ub-f1 ub-con mar-ar1 uinn-ele1">' + '      <div class="ub-img uwh-eleL ub-fh" style="background-image:url(${arrData[i].goods});"></div>' + '      <div class="ub uinn-ele2 ub-pc">' + '          <div class="ulev-4 t-gra-ele ub-f1 ut-s tx-c">${arrData[i].synopsis}</div>' + '          <div class="ufm1 t-red-eleL ulev-2">${arrData[i].price}</div>' + '      </div>' + '  </div>' + '<%if(i%2 == 1){%>' + '</div>' + '<%}%>' + '<%}%>';
+            appcan.tmpl('#showGoods', tmpl, {
+                'arrData' : arrData
+            });
+        }
+
+        function openDetails(e) {
+            if (appcan.detect.os.phone && e.type == 'click')
+                return;
+            appcan.openWinWithUrl('details', 'details.html');
+        }
+
+    </script>
+</html>

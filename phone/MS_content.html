@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+        <link rel="stylesheet" href="MS_content/css/main.css">
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+
+        <div id="listview"  class="ubt bc-border sc-bg"></div>
+
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+        <script src="js/appcan.listview.js"></script>
+    </body>
+    <script>
+        appcan.ready(function() {
+            appcan.initBounce();
+
+        })
+        var lv = appcan.listview({
+            selector : "#listview",
+            type : "thickLine",
+            hasIcon : true,
+            hasAngle : true,
+            hasSubTitle : true,
+            multiLine : 1,
+        });
+        lv.set([{
+            title : "中式美味",
+            describe : "经典的味道，味蕾的体验，一起来来旅行吧！",
+            icon : "MS_content/css/myImg/0.jpg",
+            id : "1",
+            pageurl : "ZS/indexZS.html"
+        }, {
+            title : "西式菜肴",
+            describe : "视觉与味觉双重结合，体验不一样的风格！",
+            icon : "MS_content/css/myImg/1.jpg",
+            id : "2",
+            pageurl : "XS/indexXS.html"
+        }, {
+            title : "休闲饮品",
+            describe : "休闲饮品",
+            icon : "MS_content/css/myImg/2.jpg",
+            id : "2",
+            pageurl : "ZS/indexZS.html"
+        }, {
+            title : "暖心甜点",
+            describe : "暖心甜点",
+            icon : "MS_content/css/myImg/3.jpg",
+            id : "2",
+            pageurl : "XS/indexXS.html"
+        }])
+        lv.on("click", function(obj, data, subObj) {
+            console.log(obj);
+            console.log(data);
+            console.log(subObj);
+            appcan.window.open(data.pagename, data.pageurl, 10);
+        })
+
+    </script>
+</html>
